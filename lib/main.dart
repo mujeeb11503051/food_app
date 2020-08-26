@@ -1,30 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:food_app/screens/welcome_screen.dart';
 
+void main() => runApp(FlashChat());
 
-//my own imports
-import 'package:food_app/view/my_home_page.dart';
-
-void main() {
-  //for locking the screen rotation
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
-    runApp(new MyApp());
-  });
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: ThemeData.dark().copyWith(
+        textTheme: TextTheme(
+          body1: TextStyle(color: Colors.black54),
+        ),
       ),
-      home: MyHomePage(),
+      home: WelcomeScreen(),
     );
   }
 }
